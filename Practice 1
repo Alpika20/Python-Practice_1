@@ -6,3 +6,44 @@ as a learning exercise.
 Solution:
 result = [[i, j, k] for i in range(X + 1) for j in range(Y + 1) for k in range(Z + 1) if i + j + k != N]
 print result
+
+
+Problem 2
+Given the names and grades for each student in a class of  students, store them in a nested list and print the name(s) of any student(s) having the second lowest grade.
+
+Note: If there are multiple students with the second lowest grade, order their names alphabetically and print each name on a new line.
+
+Solution:
+if __name__ == '__main__':
+    grade = []
+    res = []
+    for _ in range(int(input())):
+        name = input()
+        score = float(input())
+        res.append([name,score])
+        grade.append(score)
+grade = sorted(set(grade))
+mark = grade[1]
+name = []
+for i in res:
+    if mark == i[1]:
+        name.append(i[0])
+name.sort()
+for i in name:
+    print(i)
+    
+ Problem 3:
+ The provided code stub will read in a dictionary containing key/value pairs of name:[marks] for a list of students. Print the average of the marks 
+ array for the student name provided, showing 2 places after the decimal.
+ 
+ Solution:
+ if __name__ == '__main__':
+    n = int(input())
+    student_marks = {}
+    for _ in range(n):
+        name, *line = input().split()
+        scores = list(map(float, line))
+        student_marks[name] = scores
+    query_name = input()
+    marks = student_marks[query_name]
+    print(format(sum(marks)/3,'.2f'))
